@@ -27,4 +27,16 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'admin-index', 'uses' => 'AdminIndexController@index'
         ]);
 
+    Route::get('management/users', [
+            'as' => 'management-user', 'uses' => 'ManagementUserController@index'
+        ]);
+    Route::get('management/users/add', [
+            'as' => 'management-user-add', 'uses' => 'ManagementUserController@add'
+        ]);
+    Route::post('management/users/store', [
+            'as' => 'management-user-store', 'uses' => 'ManagementUserController@store'
+        ]);
+
+
+
 });

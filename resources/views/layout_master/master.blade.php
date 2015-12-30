@@ -269,15 +269,13 @@
 							</li>
 						</ul>
 					</li>
-					@if (Auth::user()->admin==1)
 					<li>
-						<a href="/users">
+						<a href="{{ route('management-user') }}">
 							<i class="icon-user"></i>
 							<span class="menu-text"> Kelola Pengguna </span>
 						</a>
 					</li>
-												
-					@endif
+						
 					
 						
 						
