@@ -41,7 +41,9 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-
+Route::get('dataebt', [
+		'as' => 'dataebt', 'uses' => 'DataEbtController@index'
+	]);
 Route::get('dataebt/create', [
 		'as' => 'create-dataebt', 'uses' => 'DataEbtController@create'
 	]);

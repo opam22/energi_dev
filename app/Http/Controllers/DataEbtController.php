@@ -12,7 +12,15 @@ use Session;
 
 class DataEbtController extends Controller
 {
-
+    /**
+	 * used to handle verification user
+	 * obly user who has been logged in that can access this controller
+	 */
+    public function __construct()
+    {	
+    	$this->middleware('auth');
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +28,17 @@ class DataEbtController extends Controller
      */
     public function index()
     {
-
-
-        return view('dataebts.index');
+        return view('dataebt.index', [
+    	'dataebt' => DB::table('dataebt')
+		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
+		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
+		->join('provinsi','dataebt.prov','=','provinsi.id_provinsi')
+		->join('kabupaten','dataebt.kab','=','kabupaten.id_kabupaten')
+		->join('kecamatan','dataebt.kec','=','kecamatan.id_kecamatan')
+		->join('kelurahan','dataebt.kel','=','kelurahan.id_kelurahan')
+		->select('dataebt.*', 'anggaran.nama_anggaran', 'energi.nama_energi', 'provinsi.nama_provinsi', 'kabupaten.nama_kabupaten', 'kecamatan.nama_kecamatan', 'kecamatan.nama_kecamatan', 'kelurahan.nama_kelurahan')
+		->get(),
+		]);
     }
 
     /**
@@ -46,11 +62,9 @@ class DataEbtController extends Controller
      */
     public function store(Request $request)
     {
-        // DB::table('dataebt')->create($request->all());
-		// DB::table('dataebts')->insert(
-    // ['email' => 'john@example.com', 'votes' => 0]
-// );
-		return redirect()->route('create-dataebt');
+		// $input = $request->all();
+        DB::table('dataebt')->insert($request->except(['_token']));
+		return redirect()->route('dataebt');
 
     }
 	
