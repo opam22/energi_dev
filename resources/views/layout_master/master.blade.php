@@ -107,7 +107,7 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="/auth/logout">
+									<a href="{{ route('do-logout') }}">
 										<i class="icon-off"></i>
 										Logout
 									</a>
