@@ -156,14 +156,14 @@
 
 						<ul class="submenu">
 							<li>
-								<a href="#">
+								<a href="/dataebt">
 									<i class="icon-double-angle-right"></i>
 									Lihat Data EBT
 								</a>
 							</li>
 
 							<li>
-								<a href="#">
+								<a href="/dataebt/create">
 									<i class="icon-double-angle-right"></i>
 									Kelola Data EBT
 								</a>
