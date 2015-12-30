@@ -1,0 +1,12 @@
+.login-layout .widget-box{
+	background-color: #16a085;
+}
+
+.login-box .toolbar {
+    background: #1abc9c;
+    border-top: 2px solid #16a085;
+}
+
+.login-layout{
+	background-image: url('../images/bg_grass.jpg');
+}

@@ -1,0 +1,73 @@
+.navbar .navbar-inner{
+	background: #16a085;
+}
+
+.ace-nav>li.light-green{
+	background-color: #1abc9c;	
+}
+
+.btn-primary{
+	background-color :#1abc9c!important;
+	border-color: #1abc9c;
+}
+
+.btn-primary:hover{
+	background-color :#16a085!important;
+	border-color: #1abc9c;
+}
+
+.btn-info{
+	background-color: #3498db!important;
+	border-color:#3498db;
+}
+
+.btn-success{
+	background-color: #1abc9c!important;
+	border-color: #1abc9c;
+}
+
+.btn-warning{
+	background-color: #f1c40f!important;
+	border-color:#f1c40f;
+}
+
+.btn-danger{
+	background-color: #e74c3c!important;
+	border-color: #e74c3c;
+}
+
+.table-header{
+	background-color :#16a085;
+	padding-bottom: 5px;
+}
+
+.pagination ul>li.active>a{
+	background-color: #1abc9c!important;
+	border-color: #1abc9c;
+}
+
+.pagination ul>li.active>a:hover{
+	background-color: #16a085!important;
+	border-color: #1abc9c;
+}
+
+.btn.btn-app.btn-mini>[class*=icon]{
+	font-size: 18px;
+}
+
+.ace-nav>li{
+	line-height:70px;
+	max-height:70px;
+}
+
+.user-info{
+	padding-top: 10px;
+}
+
+.navbar .nav>li>a, .navbar .nav>li>a:hover, .navbar .nav>li>a:focus{
+	font-size: 14px;
+}
+
+.navbar .brand{
+	font-weight: 500;
+}
