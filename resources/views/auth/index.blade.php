@@ -77,7 +77,7 @@
                                                      <fieldset>
                                                         <label>
                                                             <span class="block input-icon input-icon-right">
-                                                                {!! Form::text('email', null, ['class' => 'span12']) !!}
+                                                                {!! Form::text('username', null, ['class' => 'span12']) !!}
                                                                 <i class="icon-user"></i>
                                                             </span>
                                                         </label>

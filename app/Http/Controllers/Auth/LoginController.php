@@ -27,7 +27,7 @@ class LoginController extends Controller
     {
     	
     	$credentials = [
-                'email' => $request->input('email'),
+                'username' => $request->input('username'),
                 'password' => $request->input('password')
             ];
 
@@ -47,6 +47,9 @@ class LoginController extends Controller
                     }
 
 
+            }
+            else{
+                return 'username n password doesnt exist';
             }
 
     }
