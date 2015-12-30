@@ -235,7 +235,7 @@
 
 						<ul class="submenu">
 							<li>
-								<a href="/provins">
+								<a href="{{ route('data-provinsi') }}">
 									<i class="icon-double-angle-right"></i>
 									Data Provinsi
 								</a>

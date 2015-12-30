@@ -37,6 +37,10 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'management-user-store', 'uses' => 'ManagementUserController@store'
         ]);
 
+    Route::get('data/provinsi', [
+            'as' => 'data-provinsi', 'uses' => 'DataProvinsiController@index'
+        ]);
+
 
 
 });
