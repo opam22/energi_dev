@@ -34,18 +34,7 @@ class LoginController extends Controller
             
             if(Auth::attempt($credentials)){
                
-
-                    if(Auth::user()->hasRole('admin')){
-
-                 		return redirect()->route('admin-index');
-
-                    }
-                    else if(Auth::user()->hasRole('user')){
-
-                        //nanti diberesin
-
-                    }
-
+                 return redirect()->route('admin-index');
 
             }
             else{
