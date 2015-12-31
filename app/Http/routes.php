@@ -40,6 +40,98 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('data/provinsi', [
             'as' => 'data-provinsi', 'uses' => 'DataProvinsiController@index'
         ]);
+    Route::get('data/provinsi/add', [
+    		'as' => 'data-provinsi-add', 'uses' => 'DataProvinsiController@add'
+    	]);
+    Route::post('data/provinsi/store', [
+    		'as' => 'data-provinsi-store', 'uses' => 'DataProvinsiController@store'
+    	]);
+    Route::get('data/provinsi/edit/{id_provinsi}', [
+            'as' => 'data-provinsi-edit', 'uses' => 'DataProvinsiController@edit'
+        ]);
+    Route::post('data/provinsi/update/{id_provinsi}', [
+            'as' => 'data-provinsi-update', 'uses' => 'DataProvinsiController@update'
+        ]);
+    Route::get('data/provinsi/destroy/{id_provinsi}', [
+            'as' => 'data-provinsi-destroy', 'uses' => 'DataProvinsiController@destroy'
+        ]);
+
+
+    Route::get('data/kabupaten', [
+            'as' => 'data-kabupaten', 'uses' => 'DataKabupatenController@index'
+        ]);
+    Route::get('data/kabupaten/add', [
+    		'as' => 'data-kabupaten-add', 'uses' => 'DataKabupatenController@add'
+    	]);
+    Route::post('data/kabupaten/store', [
+    		'as' => 'data-kabupaten-store', 'uses' => 'DataKabupatenController@store'
+    	]);
+    Route::get('data/kabupaten/edit/{id_kabupaten}', [
+            'as' => 'data-kabupaten-edit', 'uses' => 'DataKabupatenController@edit'
+        ]);
+    Route::post('data/kabupaten/update/{id_kabupaten}', [
+            'as' => 'data-kabupaten-update', 'uses' => 'DataKabupatenController@update'
+        ]);
+    Route::get('data/kabupaten/destroy/{id_kabupaten}', [
+            'as' => 'data-kabupaten-destroy', 'uses' => 'DataKabupatenController@destroy'
+        ]);
+
+    Route::get('data/kecamatan', [
+            'as' => 'data-kecamatan', 'uses' => 'DataKecamatanController@index'
+        ]);
+    Route::get('data/kecamatan/add', [
+    		'as' => 'data-kecamatan-add', 'uses' => 'DataKecamatanController@add'
+    	]);
+    Route::post('data/kecamatan/store', [
+    		'as' => 'data-kecamatan-store', 'uses' => 'DataKecamatanController@store'
+    	]);
+    Route::get('data/kecamatan/edit/{id_kecamatan}', [
+            'as' => 'data-kecamatan-edit', 'uses' => 'DataKecamatanController@edit'
+        ]);
+    Route::post('data/kecamatan/update/{id_kecamatan}', [
+            'as' => 'data-kecamatan-update', 'uses' => 'DataKecamatanController@update'
+        ]);
+    Route::get('data/kecamatan/destroy/{id_kecamatan}', [
+            'as' => 'data-kecamatan-destroy', 'uses' => 'DataKecamatanController@destroy'
+        ]);
+
+    Route::get('data/kelurahan', [
+            'as' => 'data-kelurahan', 'uses' => 'DataKelurahanController@index'
+        ]);
+    Route::get('data/kelurahan/add', [
+    		'as' => 'data-kelurahan-add', 'uses' => 'DataKelurahanController@add'
+    	]);
+    Route::post('data/kelurahan/store', [
+    		'as' => 'data-kelurahan-store', 'uses' => 'DataKelurahanController@store'
+    	]);
+    Route::get('data/kelurahan/edit/{id_kelurahan}', [
+            'as' => 'data-kelurahan-edit', 'uses' => 'DataKelurahanController@edit'
+        ]);
+    Route::post('data/kelurahan/update/{id_kelurahan}', [
+            'as' => 'data-kelurahan-update', 'uses' => 'DataKelurahanController@update'
+        ]);
+    Route::get('data/kelurahan/destroy/{id_kelurahan}', [
+            'as' => 'data-kelurahan-destroy', 'uses' => 'DataKelurahanController@destroy'
+        ]);
+
+    Route::get('data/dusun', [
+            'as' => 'data-dusun', 'uses' => 'DataDusunController@index'
+        ]);
+    Route::get('data/dusun/add', [
+    		'as' => 'data-dusun-add', 'uses' => 'DataDusunController@add'
+    	]);
+    Route::post('data/dusun/store', [
+    		'as' => 'data-dusun-store', 'uses' => 'DataDusunController@store'
+    	]);
+    Route::get('data/dusun/edit/{id_dusun}', [
+            'as' => 'data-dusun-edit', 'uses' => 'DataDusunController@edit'
+        ]);
+    Route::post('data/dusun/update/{id_dusun}', [
+            'as' => 'data-dusun-update', 'uses' => 'DataDusunController@update'
+        ]);
+    Route::get('data/dusun/destroy/{id_dusun}', [
+            'as' => 'data-dusun-destroy', 'uses' => 'DataDusunController@destroy'
+        ]);
 
 
 

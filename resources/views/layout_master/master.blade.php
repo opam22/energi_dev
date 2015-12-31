@@ -242,27 +242,27 @@
 							</li>
 
 							<li>
-								<a href="/kebupatens">
+								<a href="{{ route('data-kabupaten') }}">
 									<i class="icon-double-angle-right"></i>
 									Data Kota/Kabupaten
 								</a>
 							</li>
 
 							<li>
-								<a href="/kecamatans">
+								<a href="{{ route('data-kecamatan') }}">
 									<i class="icon-double-angle-right"></i>
 									Data Kecamatan
 								</a>
 							</li>
 
 							<li>
-								<a href="/kelurahans">
+								<a href="{{ route('data-kelurahan') }}">
 									<i class="icon-double-angle-right"></i>
 									Data Kelurahan/Desa
 								</a>
 							</li>
 							<li>
-								<a href="/dusuns">
+								<a href="{{ route('data-dusun') }}">
 									<i class="icon-double-angle-right"></i>
 									Data Dusun
 								</a>
