@@ -41,21 +41,40 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-Route::get('dataebt', [
-		'as' => 'dataebt', 'uses' => 'DataEbtController@index'
-	]);
-Route::get('dataebt/create', [
-		'as' => 'create-dataebt', 'uses' => 'DataEbtController@create'
-	]);
-Route::post('dataebt/store', [
-		'as' => 'store-dataebt', 'uses' => 'DataEbtController@store'
-	]);
-Route::get('prov/{id}', [
-		'as' => 'dataebt-prov', 'uses' => 'DataEbtController@getKab'
-	]);
-Route::get('kab/{id}', [
-		'as' => 'dataebt-kab', 'uses' => 'DataEbtController@getKec'
-	]);
-Route::get('kec/{id}', [
-		'as' => 'dataebt-kec', 'uses' => 'DataEbtController@getKel'
-	]);
+
+
+Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
+Route::get('dataebt/create', ['as' => 'create-dataebt', 'uses' => 'DataEbtController@create']);
+Route::post('dataebt/store', ['as' => 'store-dataebt', 'uses' => 'DataEbtController@store']);
+Route::get('prov/{id}', ['as' => 'dataebt-prov', 'uses' => 'DataEbtController@getKab']);
+Route::get('kab/{id}', ['as' => 'dataebt-kab', 'uses' => 'DataEbtController@getKec']);
+Route::get('kec/{id}', ['as' => 'dataebt-kec', 'uses' => 'DataEbtController@getKel']);
+
+
+Route::get('provinsi', ['as' => 'provinsi', 'uses' => 'ProvinsiController@index']);
+Route::get('provinsi/create', ['as' => 'provinsi-create', 'uses' => 'ProvinsiController@create']);
+Route::get('provinsi/edit', ['as' => 'provinsi-edit', 'uses' => 'ProvinsiController@edit']);
+Route::get('provinsi/store', ['as' => 'provinsi-store', 'uses' => 'ProvinsiController@store']);
+Route::get('provinsi/destroy', ['as' => 'provinsi-destroy', 'uses' => 'ProvinsiController@destroy']);
+
+
+Route::get('kabupaten', ['as' => 'kabupaten', 'uses' => 'KabupatenController@index']);
+Route::get('kabupaten/create', ['as' => 'kabupaten-create', 'uses' => 'KabupatenController@create']);
+Route::get('kabupaten/edit', ['as' => 'kabupaten-edit', 'uses' => 'KabupatenController@edit']);
+Route::get('kabupaten/store', ['as' => 'kabupaten-store', 'uses' => 'KabupatenController@store']);
+Route::get('kabupaten/destroy', ['as' => 'kabupaten-destroy', 'uses' => 'KabupatenController@destroy']);
+
+
+
+Route::get('kecamatan', ['as' => 'kecamatan', 'uses' => 'KecamatanController@index']);
+Route::get('kecamatan/create', ['as' => 'kecamatan-create', 'uses' => 'KecamatanController@create']);
+Route::get('kecamatan/edit', ['as' => 'kecamatan-edit', 'uses' => 'KecamatanController@edit']);
+Route::get('kecamatan/store', ['as' => 'kecamatan-store', 'uses' => 'KecamatanController@store']);
+Route::get('kecamatan/destroy', ['as' => 'kecamatan-destroy', 'uses' => 'KecamatanController@destroy']);
+
+
+Route::get('kelurahan', ['as' => 'kelurahan', 'uses' => 'KelurahanController@index']);
+Route::get('kelurahan/create', ['as' => 'kelurahan-create', 'uses' => 'KelurahanController@create']);
+Route::get('kelurahan/edit', ['as' => 'kelurahan-edit', 'uses' => 'KelurahanController@edit']);
+Route::get('kelurahan/store', ['as' => 'kelurahan-store', 'uses' => 'KelurahanController@store']);
+Route::get('kelurahan/destroy', ['as' => 'kelurahan-destroy', 'uses' => 'KelurahanController@destroy']);
