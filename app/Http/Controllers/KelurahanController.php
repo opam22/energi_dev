@@ -80,14 +80,10 @@ class KelurahanController extends Controller
      */
     public function edit($id)
     {
-        // $kelurahan = kelurahan::findOrFail($id);
-
-        // return view('kelurahan.edit',
-		// [
-    	// 'tasks' => provins::orderBy('nama', 'asc')->get(),
-		// 'pilihan' => 'Pilih Provinsi'
-		// ],
-		// compact('kelurahan'));
+        $kelurahan = DB::table('kelurahan')->where('id_kelurahan', $id)->first();
+		$kecamatan = DB::table('kecamatan')->orderBy('nama_kecamatan', 'asc')->lists('nama_kecamatan','id_kecamatan');
+        return view('kelurahan.edit',
+		compact('kelurahan','kecamatan'));
     }
 
     /**
@@ -99,12 +95,13 @@ class KelurahanController extends Controller
     public function update($id, Request $request)
     {
         
-        // $kelurahan = kelurahan::findOrFail($id);
-        // $kelurahan->update($request->all());
+        $kelurahan = DB::table('kelurahan')
+		->where('id_kelurahan', $request->input('id_kelurahan'))
+            ->update(['nama_kelurahan' => $request->input('nama_kelurahan')]);
 
-        // Session::flash('flash_message', 'kelurahan successfully updated!');
+        Session::flash('flash_message', 'kelurahan successfully updated!');
 
-        // return redirect('kelurahan');
+        return redirect('kelurahan');
     }
 
     /**

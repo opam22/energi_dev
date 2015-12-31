@@ -12,7 +12,15 @@ use Session;
 
 class KecamatanController extends Controller
 {
-
+	/**
+	 * used to handle verification user
+	 * obly user who has been logged in that can access this controller
+	 */
+    public function __construct()
+    {	
+    	$this->middleware('auth');
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -80,14 +88,10 @@ class KecamatanController extends Controller
      */
     public function edit($id)
     {
-        // $kecamatan = kecamatan::findOrFail($id);
-
-        // return view('kecamatan.edit',
-		// [
-    	// 'tasks' => provins::orderBy('nama', 'asc')->get(),
-		// 'pilihan' => 'Pilih Provinsi'
-		// ],
-		// compact('kecamatan'));
+        $kecamatan = DB::table('kecamatan')->where('id_kecamatan', $id)->first();
+		$kabupaten = DB::table('kabupaten')->orderBy('nama_kabupaten', 'asc')->lists('nama_kabupaten','id_kabupaten');
+        return view('kecamatan.edit',
+		compact('kecamatan','kabupaten'));
     }
 
     /**
@@ -96,15 +100,16 @@ class KecamatanController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
         
-        // $kecamatan = kecamatan::findOrFail($id);
-        // $kecamatan->update($request->all());
+        $kecamatan = DB::table('kecamatan')
+		->where('id_kecamatan', $request->input('id_kecamatan'))
+            ->update(['nama_kecamatan' => $request->input('nama_kecamatan')]);
 
-        // Session::flash('flash_message', 'kecamatan successfully updated!');
+        Session::flash('flash_message', 'kecamatan successfully updated!');
 
-        // return redirect('kecamatan');
+        return redirect('kecamatan');
     }
 
     /**

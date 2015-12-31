@@ -12,7 +12,15 @@ use Session;
 
 class KabupatenController extends Controller
 {
-
+	/**
+	 * used to handle verification user
+	 * obly user who has been logged in that can access this controller
+	 */
+    public function __construct()
+    {	
+    	$this->middleware('auth');
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -79,14 +87,10 @@ class KabupatenController extends Controller
      */
     public function edit($id)
     {
-        // $kabupaten = kabupaten::findOrFail($id);
-
-        // return view('kabupaten.edit',
-		// [
-    	// 'tasks' => provins::orderBy('nama', 'asc')->get(),
-		// 'pilihan' => 'Pilih Provinsi'
-		// ],
-		// compact('kabupaten'));
+        $kabupaten = DB::table('kabupaten')->where('id_kabupaten', $id)->first();
+		$provinsi = DB::table('provinsi')->orderBy('nama_provinsi', 'asc')->lists('nama_provinsi','id_provinsi');
+        return view('kabupaten.edit',
+		compact('kabupaten','provinsi'));
     }
 
     /**
@@ -95,15 +99,15 @@ class KabupatenController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
-        
-        // $kabupaten = kabupaten::findOrFail($id);
-        // $kabupaten->update($request->all());
+        $kabupaten = DB::table('kabupaten')
+		->where('id_kabupaten', $request->input('id_kabupaten'))
+            ->update(['nama_kabupaten' => $request->input('nama_kabupaten')]);
 
-        // Session::flash('flash_message', 'kabupaten successfully updated!');
+        Session::flash('flash_message', 'kabupaten successfully updated!');
 
-        // return redirect('kabupaten');
+        return redirect('kabupaten');
     }
 
     /**

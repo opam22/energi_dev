@@ -13,6 +13,15 @@ use Session;
 class ProvinsiController extends Controller
 {
 
+	/**
+	 * used to handle verification user
+	 * obly user who has been logged in that can access this controller
+	 */
+    public function __construct()
+    {	
+    	$this->middleware('auth');
+    }
+	
     /**
      * Display a listing of the resource.
      *
@@ -78,14 +87,10 @@ class ProvinsiController extends Controller
      */
     public function edit($id)
     {
-        // $provinsi = provinsi::findOrFail($id);
+        $provinsi = DB::table('provinsi')->where('id_provinsi', $id)->first();
 
-        // return view('provinsi.edit',
-		// [
-    	// 'tasks' => provins::orderBy('nama', 'asc')->get(),
-		// 'pilihan' => 'Pilih Provinsi'
-		// ],
-		// compact('provinsi'));
+        return view('provinsi.edit',
+		compact('provinsi'));
     }
 
     /**
@@ -94,15 +99,18 @@ class ProvinsiController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
         
         // $provinsi = provinsi::findOrFail($id);
-        // $provinsi->update($request->all());
+        // $provinsi->update($request->all());.
+		$provinsi = DB::table('provinsi')
+		->where('id_provinsi', $request->input('id_provinsi'))
+            ->update(['nama_provinsi' => $request->input('nama_provinsi')]);
 
-        // Session::flash('flash_message', 'provinsi successfully updated!');
+        Session::flash('flash_message', 'provinsi successfully updated!');
 
-        // return redirect('provinsi');
+        return redirect('provinsi');
     }
 
     /**
