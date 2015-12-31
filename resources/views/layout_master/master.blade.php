@@ -156,14 +156,14 @@
 
 						<ul class="submenu">
 							<li>
-								<a href="#">
+								<a href="/dataebt">
 									<i class="icon-double-angle-right"></i>
 									Lihat Data EBT
 								</a>
 							</li>
 
 							<li>
-								<a href="#">
+								<a href="/dataebt/create">
 									<i class="icon-double-angle-right"></i>
 									Kelola Data EBT
 								</a>
@@ -236,7 +236,7 @@
 						<ul class="submenu">
 							<li>
 								<a href="{{ route('data-provinsi') }}">
-									<i class="icon-double-angle-right"></i>
+								<i class="icon-double-angle-right"></i>
 									Data Provinsi
 								</a>
 							</li>
@@ -250,14 +250,14 @@
 
 							<li>
 								<a href="{{ route('data-kecamatan') }}">
-									<i class="icon-double-angle-right"></i>
+								<i class="icon-double-angle-right"></i>
 									Data Kecamatan
 								</a>
 							</li>
 
 							<li>
 								<a href="{{ route('data-kelurahan') }}">
-									<i class="icon-double-angle-right"></i>
+								<i class="icon-double-angle-right"></i>
 									Data Kelurahan/Desa
 								</a>
 							</li>
