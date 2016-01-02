@@ -178,3 +178,17 @@ Route::get('kelurahan/create', ['as' => 'kelurahan-create', 'uses' => 'Kelurahan
 Route::get('kelurahan/{id}/edit', ['as' => 'kelurahan-edit', 'uses' => 'KelurahanController@edit']);
 Route::get('kelurahan/store', ['as' => 'kelurahan-store', 'uses' => 'KelurahanController@store']);
 Route::get('kelurahan/destroy', ['as' => 'kelurahan-destroy', 'uses' => 'KelurahanController@destroy']);
+
+
+Route::get('master/anggaran', [
+            'as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index'
+        ]);
+Route::get('master/energi', [
+            'as' => 'master-energi', 'uses' => 'MasterEnergiController@index'
+        ]);
+Route::get('master/instansi', [
+            'as' => 'master-instansi', 'uses' => 'MasterInstansiController@index'
+        ]);
+Route::get('master/potensi', [
+            'as' => 'master-potensi', 'uses' => 'MasterPotensiController@index'
+        ]);
