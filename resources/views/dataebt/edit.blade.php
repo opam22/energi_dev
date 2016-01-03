@@ -13,7 +13,7 @@ fieldset {border-radius:4px;}
 	{!! Form::open(['route' => 'store-dataebt']) !!}
 	<fieldset>
 	    <legend>Data Daerah</legend>
-		<table style='width:410px;float:right'">
+		<table style='width:410px;float:left'>
 		<tr id='ebt_box'>
 			<td>Jenis Energi</td>
 			<td>:</td>
@@ -63,7 +63,7 @@ fieldset {border-radius:4px;}
 			</td>
 		</tr>
 		</table>
-		<table>
+		<table style='float:left'>
 		<tr id='prov_box'>
 			<td>Provinsi</td>
 			<td>:</td>

@@ -1,24 +1,28 @@
-@extends('layout_master.master')
+<link href="http://127.0.0.1/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="http://127.0.0.1/assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="http://127.0.0.1/assets/css/font-awesome.min.css" />
+		<link href="http://127.0.0.1/assets/images/favicon.ico" rel="shortcut icon" /> 
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
 
-@section('content')
-	
-	<h1>Data EBT</h1>
+		<!--page specific plugin styles-->
 
-	<a href="{{ route('create-dataebt') }}" class="btn btn-primary pull-right btn-sm">Tambah Data EBT</a>
-	<br><br>
+		<!--fonts-->
 
-	@if(Session::has('flash_message'))
-	    
-	    <br><br><br>
-	    <div class="alert alert-danger">
-	        
-	        {{ session('flash_message') }}
+		<link rel="stylesheet" href="http://127.0.0.1/assets/font/myfont1.css" />
 
-	    </div>
+		<!--ace styles-->
 
-	@endif
+		<link rel="stylesheet" href="http://127.0.0.1/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="http://127.0.0.1/assets/css/ace-responsive.min.css" />
+		<link rel="stylesheet" href="http://127.0.0.1/assets/css/ace-skins.min.css" />
 
-	<table class="table table-bordered" id="users-table">
+		<link rel="stylesheet" href="http://127.0.0.1/assets/css/custom.css" />
+
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <table class="table table-bordered" id="users-table">
         <thead>
             <tr>
                 <th>Energi</th>
@@ -49,7 +53,7 @@ $(function() {
     $('#users-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('dataebt-ajax') !!}',
+        ajax: '{!! route('datatables.data') !!}',
         columns: [
             { data: 'nama_energi', name: 'nama_energi' },
             { data: 'nama_anggaran', name: 'nama_anggaran' },
@@ -65,12 +69,11 @@ $(function() {
         ],
 		"columnDefs":[
 			{"targets":10, "data":"name", "render": function(data,type,full,meta)
-			 { return '<a href="{!! route('edit-dataebt') !!}?id='+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-edit"></i></a>'+
-			 '<a href="{{ route('destroy-dataebt') }}?id='+data+'" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
+			 { return '<a href="{!! route('datatables.data') !!}?id='+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-edit"></i></a>'+
+			 '<a href="{{ route('datatables.data') }}?id='+data+'" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
 			}},
 	
 		]
     });
 });
 </script>
-@stop

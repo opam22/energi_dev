@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('dataebt/ajax', [
+		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@anyData'
+	]);
+	
 Route::get('/', [
 		'as' => 'index', 'uses' => 'IndexController@index'
 	]);
@@ -137,10 +142,11 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-
-
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
+Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);
 Route::get('dataebt/create', ['as' => 'create-dataebt', 'uses' => 'DataEbtController@create']);
+Route::get('dataebt/destroy', ['as' => 'destroy-dataebt', 'uses' => 'DataEbtController@destroy']);
+Route::post('dataebt/update', ['as' => 'update-dataebt', 'uses' => 'DataEbtController@update']);
 Route::post('dataebt/store', ['as' => 'store-dataebt', 'uses' => 'DataEbtController@store']);
 Route::get('prov/{id}', ['as' => 'dataebt-prov', 'uses' => 'DataEbtController@getKab']);
 Route::get('kab/{id}', ['as' => 'dataebt-kab', 'uses' => 'DataEbtController@getKec']);

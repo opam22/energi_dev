@@ -54,6 +54,15 @@ class DataEbtController extends Controller
     	'energis' => DB::table('energi')->orderBy('nama_energi', 'asc')->get()
     ]);
     }
+	
+	public function edit()
+    {
+        return view('dataebt.edit', [
+    	'tasks' => DB::table('provinsi')->orderBy('nama_provinsi', 'asc')->get(),
+    	'anggarans' => DB::table('anggaran')->orderBy('nama_anggaran', 'asc')->get(),
+    	'energis' => DB::table('energi')->orderBy('nama_energi', 'asc')->get()
+    ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -61,6 +70,14 @@ class DataEbtController extends Controller
      * @return Response
      */
     public function store(Request $request)
+    {
+		// $input = $request->all();
+        DB::table('dataebt')->insert($request->except(['_token']));
+		return redirect()->route('dataebt');
+
+    }
+	
+	public function update(Request $request)
     {
 		// $input = $request->all();
         DB::table('dataebt')->insert($request->except(['_token']));

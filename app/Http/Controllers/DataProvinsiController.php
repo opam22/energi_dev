@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Datatables;
+use Yajra\Datatables\Html\Builder;
 
 class DataProvinsiController extends Controller
 {
