@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Edit</h1>
+    <h1>Add</h1>
     <hr/>
 
     {!! Form::open(['route' => 'data-kabupaten-store']) !!}
@@ -24,12 +24,13 @@
          </div>
 
          <div class="form-group"> 
-            {!! Form::label('id_jenis', 'Id Jenis :') !!}
-            <input type="number" name="id_jenis">
+            {!! Form::label('id_jenis', 'Jenis :') !!}
+            {!! Form::select('id_jenis', $jenis , null, ['class' => 'form-control']) !!}
          </div>
     
           <div class="form-group"> 
             {!! Form::submit('Add', ['class' => 'btn btn-primary form-control']) !!}
+            {!! HTML::link('./kabupaten/', 'Cancel', array('class' => 'btn btn-primary form-control')) !!}
           </div>
 
     {!! Form::close() !!}
