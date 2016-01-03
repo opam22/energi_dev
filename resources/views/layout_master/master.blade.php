@@ -98,7 +98,7 @@
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="{{ route('profile') }}">
 										<i class="icon-user"></i>
 										Profile
 									</a>
@@ -197,27 +197,27 @@
 
 						<ul class="submenu">
 							<li>
-								<a href="/angarans">
+								<a href="{{ route('master-anggaran') }}">
 									<i class="icon-double-angle-right"></i>
 									Master Anggaran
 								</a>
 							</li>
 
 							<li>
-								<a href="/listebts">
+								<a href="{{ route('master-energi') }}">
 									<i class="icon-double-angle-right"></i>
 									Master Jenis EBT
 								</a>
 							</li>
 
 							<li>
-								<a href="/instansis">
+								<a href="{{ route('master-instansi') }}">
 									<i class="icon-double-angle-right"></i>
 									Master Instansi
 								</a>
 							</li>
 							<li>
-								<a href="/potens">
+								<a href="{{ route('master-potensi') }}">
 									<i class="icon-double-angle-right"></i>
 									Master Potensi Daerah
 								</a>

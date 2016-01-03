@@ -44,7 +44,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ route('data-provinsi-destroy', $item->id_provinsi) }}" class="btn btn-app btn-danger btn-mini">
+                        <a href="{{ route('data-provinsi-destroy', $item->id_provinsi) }}" onclick="return confirm('Are you sure?');" class="btn btn-app btn-danger btn-mini">
                              <i class="icon-trash"></i>
                         </a>
                     </td>
