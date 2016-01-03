@@ -43,7 +43,7 @@
                              <i class="icon-edit"></i>
                         </a></td>
                         <td>
-                        <a href="{{ route('data-kelurahan-destroy', $item->id_kelurahan) }}" class="btn btn-app btn-danger btn-mini">
+                        <a href="{{ route('data-kelurahan-destroy', $item->id_kelurahan) }}"  onclick="return confirm('Are you sure?');" class="btn btn-app btn-danger btn-mini">
                              <i class="icon-trash"></i>
                         </a></td>
                     </td>

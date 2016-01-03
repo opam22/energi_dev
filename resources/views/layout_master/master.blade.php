@@ -98,7 +98,7 @@
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="{{ route('profile') }}">
 										<i class="icon-user"></i>
 										Profile
 									</a>

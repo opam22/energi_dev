@@ -20,6 +20,21 @@ Route::post('login/do', [
 Route::get('logout', [
 		'as' => 'do-logout', 'uses' => 'Auth\LogoutController@doLogout'
 	]);
+Route::get('profile', [
+        'as' => 'profile', 'uses' => 'ProfileController@index'
+    ]);
+Route::get('profile/edit', [
+        'as' => 'profile-edit', 'uses' => 'ProfileController@edit'
+    ]);
+Route::patch('profile/edit/{id}', [
+        'as' => 'profile-update', 'uses' => 'ProfileController@update'
+    ]);
+Route::get('profile/edit/password', [
+        'as' => 'profile-edit-password', 'uses' => 'ProfileController@editPassword'
+    ]);
+Route::post('profile/update/password', [
+        'as' => 'profile-update-password', 'uses' => 'ProfileController@updatePassword'
+    ]);
 
 Route::group(['prefix' => 'admin'], function(){
     
@@ -54,7 +69,7 @@ Route::group(['prefix' => 'admin'], function(){
         ]);
     Route::get('data/provinsi/destroy/{id_provinsi}', [
             'as' => 'data-provinsi-destroy', 'uses' => 'DataProvinsiController@destroy'
-        ]);
+        ]); 
 
 
     Route::get('data/kabupaten', [
