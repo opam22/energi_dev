@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2015 at 11:39 AM
+-- Generation Time: Jan 04, 2016 at 05:43 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -38,9 +38,11 @@ CREATE TABLE IF NOT EXISTS `dataebt` (
   `anggaran` int(11) NOT NULL,
   `terpasang` int(11) NOT NULL,
   `kwh` int(11) NOT NULL,
+  `kwhr` int(11) NOT NULL,
+  `data_keterangan` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id_data`),
   UNIQUE KEY `prov` (`prov`,`kab`,`kec`,`kel`,`dusun`,`energi`,`posisi`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

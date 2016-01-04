@@ -42,7 +42,7 @@
         <!-- Bootstrap JavaScript -->
 		<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <!-- App scripts -->
-			
+
 	
 <script>
 $(function() {
