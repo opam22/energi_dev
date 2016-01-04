@@ -10,7 +10,7 @@
                             </small>
                         </h1>
     </div><!--/.page-header-->
-    <h1><a href="#" class="btn btn-primary pull-right btn-sm">Add New</a></h1>
+    <h1><a href="{{ route('master-anggaran-add') }}" class="btn btn-primary pull-right btn-sm">Add New</a></h1>
     <div class="table-header">
                                    Jenis-Jenis Anggaran
     </div>
@@ -31,6 +31,11 @@
                         <a href="#" class="btn btn-app btn-info btn-mini">
                             <i class="icon-edit"></i>
                         </a> 
+                        {!! Form::open([
+                            'method'=>'DELETE',
+                            'route' => ['master-anggaran-destroy', $item->id_anggaran],
+                            'style' => 'display:inline'
+                        ]) !!}
                              {!! Form::button('<i class="icon-trash"></i>', array(
                                                         'type' => 'submit',
                                                         'class'=> 'btn btn-app btn-danger btn-mini',

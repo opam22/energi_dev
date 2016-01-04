@@ -180,15 +180,16 @@ Route::get('kelurahan/store', ['as' => 'kelurahan-store', 'uses' => 'KelurahanCo
 Route::get('kelurahan/destroy', ['as' => 'kelurahan-destroy', 'uses' => 'KelurahanController@destroy']);
 
 
-Route::get('master/anggaran', [
-            'as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index'
-        ]);
-Route::get('master/energi', [
-            'as' => 'master-energi', 'uses' => 'MasterEnergiController@index'
-        ]);
-Route::get('master/instansi', [
-            'as' => 'master-instansi', 'uses' => 'MasterInstansiController@index'
-        ]);
-Route::get('master/potensi', [
-            'as' => 'master-potensi', 'uses' => 'MasterPotensiController@index'
-        ]);
+Route::get('master/anggaran', ['as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index']);
+Route::get('master/anggaran/add', ['as' => 'master-anggaran-add', 'uses' => 'MasterAnggaranController@add']);
+Route::get('data/kelurahan/destroy/{id_anggaran}', ['as' => 'master-anggaran-destroy', 'uses' => 'MasterAnggaranController@destroy']);
+Route::post('master/anggaran/store', ['as' => 'master-anggaran-store', 'uses' => 'MasterAnggaranController@store']);
+
+
+Route::get('master/energi', ['as' => 'master-energi', 'uses' => 'MasterEnergiController@index']);
+
+
+Route::get('master/instansi', ['as' => 'master-instansi', 'uses' => 'MasterInstansiController@index']);
+
+
+Route::get('master/potensi', ['as' => 'master-potensi', 'uses' => 'MasterPotensiController@index']);

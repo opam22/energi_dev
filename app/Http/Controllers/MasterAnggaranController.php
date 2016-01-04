@@ -32,9 +32,9 @@ class MasterAnggaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+        return view('admin.master_anggaran.add');
     }
 
     /**
@@ -45,7 +45,9 @@ class MasterAnggaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('anggaran')->insert($request->except('_token'));
+
+        return redirect()->route('master-anggaran');
     }
 
     /**
@@ -90,6 +92,10 @@ class MasterAnggaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelurahan = DB::table('anggaran')
+                        ->where('id_anggaran', $id)
+                        ->delete();
+
+        return redirect()->route('data-kelurahan');
     }
 }

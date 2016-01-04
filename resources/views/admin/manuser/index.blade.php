@@ -10,7 +10,7 @@
 	@if(Session::has('flash_message'))
 	    
 	    <br><br><br>
-	    <div class="alert alert-danger">
+	    <div class="alert alert-succes">
 	        
 	        {{ session('flash_message') }}
 
