@@ -7,7 +7,7 @@ select {width:240px;}
 fieldset {border-radius:4px;}
 #map-canvas {width:100%;height:400px;border:solid #999 1px;}
 </style>
-<?php print_r($dataebt);?>
+
 	<script type="text/javascript" src="{{ asset('/assets/js/ajax_daerah.js') }}"></script>
 	{!! Form::open(['route' => 'store-dataebt']) !!}
 	<fieldset>
