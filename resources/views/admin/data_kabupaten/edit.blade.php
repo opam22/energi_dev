@@ -24,8 +24,8 @@
          </div>
 
          <div class="form-group"> 
-            {!! Form::label('id_jenis', 'Id Jenis :') !!}
-            <input type="number" name="id_jenis" value="{{ $kabupaten->id_jenis }}">
+            {!! Form::label('id_jenis', 'Jenis :') !!}
+            {!! Form::select('id_jenis', $jenis, null, ['class' => 'form-control']) !!}
          </div>
     
           <div class="form-group"> 

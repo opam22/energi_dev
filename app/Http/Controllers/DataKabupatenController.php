@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Provinsi;
+use App\Jenis;
+
 
 class DataKabupatenController extends Controller
 {
@@ -33,7 +35,9 @@ class DataKabupatenController extends Controller
     public function add()
     {
         $provinsies = Provinsi::lists('nama_provinsi', 'id_provinsi');
-        return view('admin.data_kabupaten.add', compact('provinsies'));
+        $jenis = Jenis::lists('nama', 'id_jenis');
+
+        return view('admin.data_kabupaten.add', compact('provinsies','jenis'));
     }
 
     public function store(Request $request)
@@ -46,12 +50,14 @@ class DataKabupatenController extends Controller
     public function edit($id)
     {   
         $provinsies = Provinsi::lists('nama_provinsi', 'id_provinsi');
+        $jenis = Jenis::lists('nama', 'id_jenis');
+
 
         $kabupaten = DB::table('kabupaten')
                         ->where('id_kabupaten', $id)
                         ->first();
 
-        return view('admin.data_kabupaten.edit', compact('kabupaten', 'provinsies'));
+        return view('admin.data_kabupaten.edit', compact('kabupaten', 'provinsies', 'jenis'));
     }
 
     public function update(Request $request, $id)

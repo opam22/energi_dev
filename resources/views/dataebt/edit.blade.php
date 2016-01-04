@@ -5,25 +5,19 @@
 body,table {font-family:Calibri, Verdana, Arial, sans-serif; font-size:1em;}
 select {width:240px;}
 fieldset {border-radius:4px;}
-#kab_box,#kec_box,#kel_box,#lat_box,#lng_box,#table,#plts_box,#dusun_box {display:none;}
 #map-canvas {width:100%;height:400px;border:solid #999 1px;}
 </style>
-
+<?php print_r($dataebt);?>
 	<script type="text/javascript" src="{{ asset('/assets/js/ajax_daerah.js') }}"></script>
 	{!! Form::open(['route' => 'store-dataebt']) !!}
 	<fieldset>
 	    <legend>Data Daerah</legend>
-		<table style='width:410px;float:right'">
+		<table style='width:410px;float:left'>
 		<tr id='ebt_box'>
 			<td>Jenis Energi</td>
 			<td>:</td>
 			<td>
-				<select name="energi" id="energi" onchange="ajaxplts(this.options[this.selectedIndex].innerHTML)">
-					<option value="">Pilih Jenis Energi</option>
-					@foreach ($energis as $energi)
-					<option value="{{ $energi->id_energi }}">{{ $energi->nama_energi }}</option>
-					@endforeach
-				<select>
+				{!! Form::select('energi', $energi, $dataebt->energi, ['class' => 'form-control']) !!}
 			</td>
 		</tr>
 		<tr id='plts_box'>
@@ -40,30 +34,39 @@ fieldset {border-radius:4px;}
 			<td>Anggaran</td>
 			<td>:</td>
 			<td>
-				<select name="anggaran" id="anggaran">
-					<option value="">Pilih Anggaran</option>
-					@foreach ($anggarans as $anggaran)
-					<option value="{{ $anggaran->id_anggaran }}">{{ $anggaran->nama_anggaran }}</option>
-					@endforeach
-				<select>
+				{!! Form::select('anggaran', $anggaran, $dataebt->anggaran, ['class' => 'form-control']) !!}
 			</td>
 		</tr>
 		<tr id='terpasang_box'>
 			<td>Jumlah Terpasang</td>
 			<td>:</td>
 			<td>
-				<input type="number" name="terpasang" id="terpasang"/>
+				{!! Form::text('terpasang', $dataebt->terpasang, ['class' => 'form-control']) !!}
+			</td>
+		</tr>
+		<tr id='kwhr_box'>
+			<td> KWh/Rumah</td>
+			<td>:</td>
+			<td>
+				{!! Form::text('kwhr', $dataebt->kwhr, ['class' => 'form-control']) !!}
 			</td>
 		</tr>
 		<tr id='kwh_box'>
 			<td>Jumlah KWh</td>
 			<td>:</td>
 			<td>
-				<input type="number" name="kwh" id="kwh"/>
+				{!! Form::text('kwh', $dataebt->kwh, ['class' => 'form-control']) !!}
+			</td>
+		</tr>
+		<tr id='keterangan_box'>
+			<td>Keterangan</td>
+			<td>:</td>
+			<td>
+				{!! Form::textarea('data_keterangan', $dataebt->data_keterangan, ['class' => 'form-control']) !!}
 			</td>
 		</tr>
 		</table>
-		<table>
+		<table style='float:left'>
 		<tr id='prov_box'>
 			<td>Provinsi</td>
 			<td>:</td>

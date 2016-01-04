@@ -12,8 +12,9 @@ fieldset {border-radius:4px;}
 	<script type="text/javascript" src="{{ asset('/assets/js/ajax_daerah.js') }}"></script>
 	{!! Form::open(['route' => 'store-dataebt']) !!}
 	<fieldset>
-	    <legend>Data Daerah</legend>
-		<table style='width:410px;float:right'">
+	    <legend>Data Energi Daerah</legend>
+		
+		<table style='width:410px;float:left'>
 		<tr id='ebt_box'>
 			<td>Jenis Energi</td>
 			<td>:</td>
@@ -55,6 +56,13 @@ fieldset {border-radius:4px;}
 				<input type="number" name="terpasang" id="terpasang"/>
 			</td>
 		</tr>
+		<tr id='kwhr_box'>
+			<td> KWh/Rumah</td>
+			<td>:</td>
+			<td>
+				<input type="number" name="kwhr" id="kwhr"/>
+			</td>
+		</tr>
 		<tr id='kwh_box'>
 			<td>Jumlah KWh</td>
 			<td>:</td>
@@ -62,10 +70,17 @@ fieldset {border-radius:4px;}
 				<input type="number" name="kwh" id="kwh"/>
 			</td>
 		</tr>
+		<tr id='keterangan_box'>
+			<td>Keterangan</td>
+			<td>:</td>
+			<td>
+				<textarea name="data_keterangan" id="data_keterangan"/></textarea>
+			</td>
+		</tr>
 		</table>
-		<table>
-		<tr id='prov_box'>
-			<td>Provinsi</td>
+		
+		<table style='float:left'>
+		<tr id='prov_box'>			<td>Provinsi</td>
 			<td>:</td>
 			<td>
 				<select name="prov" id="prov" onchange="ajaxkota(this.value)">
@@ -121,6 +136,8 @@ fieldset {border-radius:4px;}
 		  <td><input type='text' id='lng' readonly></td>
 		</tr>
 		</table>
+		
+		
 		<div id="table" style='width:200px;margin-left:80px;'>
 	  </div>
 	  <div class="form-actions" style="clear:both;">

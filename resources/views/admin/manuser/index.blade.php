@@ -18,7 +18,7 @@
 
 	@endif
 
-	<table class="table">
+	<table id="tabelsaku" class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
 				<th>Username</th>
@@ -41,5 +41,12 @@
 		</tbody>
 	</table>
 	
+	<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.dataTables.bootstrap.js') }}"></script>
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        $('#tabelsaku').DataTable();
+	    });
+	</script>
 
 @stop

@@ -11,6 +11,22 @@
 |
 */
 
+
+
+/*
+contoh server side datatables
+*/
+Route::controller('datatables', 'DatatablesController', [
+    'anyData'  => 'datatables.data',
+    'getIndex' => 'datatables',
+]);
+
+
+
+Route::get('dataebt/ajax', [
+		'as' => 'dataebt-ajax', 'uses' => 'DatatablesEbtController@anyData'
+	]);
+	
 Route::get('/', [
 		'as' => 'index', 'uses' => 'IndexController@index'
 	]);
@@ -20,6 +36,21 @@ Route::post('login/do', [
 Route::get('logout', [
 		'as' => 'do-logout', 'uses' => 'Auth\LogoutController@doLogout'
 	]);
+Route::get('profile', [
+        'as' => 'profile', 'uses' => 'ProfileController@index'
+    ]);
+Route::get('profile/edit', [
+        'as' => 'profile-edit', 'uses' => 'ProfileController@edit'
+    ]);
+Route::patch('profile/edit/{id}', [
+        'as' => 'profile-update', 'uses' => 'ProfileController@update'
+    ]);
+Route::get('profile/edit/password', [
+        'as' => 'profile-edit-password', 'uses' => 'ProfileController@editPassword'
+    ]);
+Route::post('profile/update/password', [
+        'as' => 'profile-update-password', 'uses' => 'ProfileController@updatePassword'
+    ]);
 
 Route::group(['prefix' => 'admin'], function(){
     
@@ -54,7 +85,7 @@ Route::group(['prefix' => 'admin'], function(){
         ]);
     Route::get('data/provinsi/destroy/{id_provinsi}', [
             'as' => 'data-provinsi-destroy', 'uses' => 'DataProvinsiController@destroy'
-        ]);
+        ]); 
 
 
     Route::get('data/kabupaten', [
@@ -137,10 +168,11 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
-
-
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
+Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);
 Route::get('dataebt/create', ['as' => 'create-dataebt', 'uses' => 'DataEbtController@create']);
+Route::get('dataebt/destroy', ['as' => 'destroy-dataebt', 'uses' => 'DataEbtController@destroy']);
+Route::post('dataebt/update', ['as' => 'update-dataebt', 'uses' => 'DataEbtController@update']);
 Route::post('dataebt/store', ['as' => 'store-dataebt', 'uses' => 'DataEbtController@store']);
 Route::get('prov/{id}', ['as' => 'dataebt-prov', 'uses' => 'DataEbtController@getKab']);
 Route::get('kab/{id}', ['as' => 'dataebt-kab', 'uses' => 'DataEbtController@getKec']);
