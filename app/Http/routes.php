@@ -12,8 +12,19 @@
 */
 
 
+
+/*
+contoh server side datatables
+*/
+Route::controller('datatables', 'DatatablesController', [
+    'anyData'  => 'datatables.data',
+    'getIndex' => 'datatables',
+]);
+
+
+
 Route::get('dataebt/ajax', [
-		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@anyData'
+		'as' => 'dataebt-ajax', 'uses' => 'DatatablesEbtController@anyData'
 	]);
 	
 Route::get('/', [

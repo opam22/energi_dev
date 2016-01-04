@@ -55,12 +55,14 @@ class DataEbtController extends Controller
     ]);
     }
 	
-	public function edit()
+	public function edit(Request $request)
     {
         return view('dataebt.edit', [
     	'tasks' => DB::table('provinsi')->orderBy('nama_provinsi', 'asc')->get(),
-    	'anggarans' => DB::table('anggaran')->orderBy('nama_anggaran', 'asc')->get(),
-    	'energis' => DB::table('energi')->orderBy('nama_energi', 'asc')->get()
+    	'anggaran' => DB::table('anggaran')->orderBy('nama_anggaran', 'asc')->lists('nama_anggaran','id_anggaran'),
+    	'energi' => DB::table('energi')->orderBy('nama_energi', 'asc')->lists('nama_energi','id_energi'),
+    	'energi' => DB::table('energi')->orderBy('nama_energi', 'asc')->lists('nama_energi','id_energi'),
+    	'dataebt' => DB::table('dataebt')->where('id_data', $request->input('id'))->first(),
     ]);
     }
 
