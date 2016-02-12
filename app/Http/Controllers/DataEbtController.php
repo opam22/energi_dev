@@ -112,8 +112,13 @@ class DataEbtController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
-    {
+    public function destroy(Request $request) {
+		$id = $request->input('id');
+		DB::table('dataebt')
+			->where('id_data', $id)
+			->delete();
+
+        return redirect()->route('dataebt');
         // dataebts::destroy($id);
 
         // Session::flash('flash_message', 'dataebts successfully deleted!');
