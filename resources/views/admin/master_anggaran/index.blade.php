@@ -28,20 +28,12 @@
                     <td>{{ $x }}</td>
                     <td><a href="#">{{ $item->nama_anggaran }}</a></td><td>{{ $item->keterangan }}</td>
                     <td>
-                        <a href="#" class="btn btn-app btn-info btn-mini">
+                        <a href="{{ route('master-anggaran-edit', $item->id_anggaran) }}" class="btn btn-app btn-info btn-mini">
                             <i class="icon-edit"></i>
                         </a> 
-                        {!! Form::open([
-                            'method'=>'DELETE',
-                            'route' => ['master-anggaran-destroy', $item->id_anggaran],
-                            'style' => 'display:inline'
-                        ]) !!}
-                             {!! Form::button('<i class="icon-trash"></i>', array(
-                                                        'type' => 'submit',
-                                                        'class'=> 'btn btn-app btn-danger btn-mini',
-                                                        'onclick'=>'return confirm("Are you sure?")'
-                                                )); !!}
-                        {!! Form::close() !!}
+                        <a href="{{ route('master-anggaran-destroy', $item->id_anggaran) }}" onclick="return confirm('Are you sure?');" class="btn btn-app btn-danger btn-mini">
+                             <i class="icon-trash"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

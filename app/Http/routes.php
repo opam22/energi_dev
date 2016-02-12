@@ -214,7 +214,9 @@ Route::get('kelurahan/destroy', ['as' => 'kelurahan-destroy', 'uses' => 'Kelurah
 
 Route::get('master/anggaran', ['as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index']);
 Route::get('master/anggaran/add', ['as' => 'master-anggaran-add', 'uses' => 'MasterAnggaranController@add']);
-Route::get('data/kelurahan/destroy/{id_anggaran}', ['as' => 'master-anggaran-destroy', 'uses' => 'MasterAnggaranController@destroy']);
+Route::get('master/anggaran/destroy/{id_anggaran}', ['as' => 'master-anggaran-destroy', 'uses' => 'MasterAnggaranController@destroy']);
+Route::get('master/anggaran/edit/{id_anggaran}', ['as' => 'master-anggaran-edit', 'uses' => 'MasterAnggaranController@edit']);
+Route::post('master/anggaran/update/{id_anggaran}', ['as' => 'master-anggaran-update', 'uses' => 'MasterAnggaranController@update']);
 Route::post('master/anggaran/store', ['as' => 'master-anggaran-store', 'uses' => 'MasterAnggaranController@store']);
 
 
