@@ -31,6 +31,8 @@
 
 		<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
 
+
+
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
 		<![endif]-->
@@ -39,6 +41,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 		<script src="{{ asset('assets/js/jquery-2.1.4.min.js') }}"></script>
+
+		<link rel="stylesheet" href="{{ asset('assets/sweetalert2-master/dist/sweetalert2.css') }}" />
+		<script type="text/javascript" src="{{ asset('assets/sweetalert2-master/dist/sweetalert2.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('assets/angular.min.js') }}"></script>
 
 		<!--<![endif]-->
 
@@ -368,6 +374,9 @@
 
 		<script src="{{ asset('assets/js/ace-elements.min.js') }}"></script>
 		<script src="{{ asset('assets/js/ace.min.js') }}"></script>
+
+		<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+		<script src="{{ asset('assets/js/jquery.dataTables.bootstrap.js') }}"></script>
 
 		<!--inline scripts related to this page-->
 	</body>
