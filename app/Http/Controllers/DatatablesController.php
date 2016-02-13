@@ -64,4 +64,62 @@ class DatatablesController extends Controller
     ->escapeColumns()
     ->make(true);
 	}
+	
+	public function reportProvData($id)
+	{
+		// return Datatables::of(User::select('*'))->make(true);
+		$devices = DB::table('dataebt')
+		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
+		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
+		->join('kabupaten','dataebt.kab','=','kabupaten.id_kabupaten')
+		->where('dataebt.prov', $id)
+		->groupBy('kab')
+		->selectRaw('dataebt.kab, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kabupaten.nama_kabupaten');
+		return Datatables::of($devices)
+    ->escapeColumns()
+    ->make(true);
+	}
+	
+	public function reportKabData($id)
+	{
+		// return Datatables::of(User::select('*'))->make(true);
+		$devices = DB::table('dataebt')
+		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
+		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
+		->join('kecamatan','dataebt.kec','=','kecamatan.id_kecamatan')
+		->where('dataebt.kab', $id)
+		->groupBy('kec')
+		->selectRaw('dataebt.kec, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kecamatan.nama_kecamatan');
+		return Datatables::of($devices)
+    ->escapeColumns()
+    ->make(true);
+	}
+	
+	public function reportKecData($id)
+	{
+		// return Datatables::of(User::select('*'))->make(true);
+		$devices = DB::table('dataebt')
+		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
+		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
+		->join('kelurahan','dataebt.kel','=','kelurahan.id_kelurahan')
+		->where('dataebt.kec', $id)
+		->groupBy('kel')
+		->selectRaw('dataebt.kel, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kelurahan.nama_kelurahan');
+		return Datatables::of($devices)
+    ->escapeColumns()
+    ->make(true);
+	}
+	
+	public function reportKelData($id)
+	{
+		// return Datatables::of(User::select('*'))->make(true);
+		$devices = DB::table('dataebt')
+		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
+		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
+		->where('dataebt.kel', $id)
+		->selectRaw('dataebt.dusun, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, dataebt.dusun');
+		return Datatables::of($devices)
+    ->escapeColumns()
+    ->make(true);
+	}
 }

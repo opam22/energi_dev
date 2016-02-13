@@ -29,6 +29,18 @@ Route::get('dataebt/ajax', [
 Route::get('report/ajax', [
 		'as' => 'report-ajax', 'uses' => 'DatatablesController@reportData'
 	]);
+Route::get('report/ajax/prov/{id}', [
+		'as' => 'report-ajax-prov', 'uses' => 'DatatablesController@reportProvData'
+	]);
+Route::get('report/ajax/kab/{id}', [
+		'as' => 'report-ajax-kab', 'uses' => 'DatatablesController@reportKabData'
+	]);
+Route::get('report/ajax/kec/{id}', [
+		'as' => 'report-ajax-kec', 'uses' => 'DatatablesController@reportKecData'
+	]);
+Route::get('report/ajax/kel/{id}', [
+		'as' => 'report-ajax-kel', 'uses' => 'DatatablesController@reportKelData'
+	]);
 	
 Route::get('/', [
 		'as' => 'index', 'uses' => 'IndexController@index'
@@ -173,6 +185,10 @@ Route::group(['prefix' => 'admin'], function(){
 
 
 Route::get('report', ['as' => 'report', 'uses' => 'ReportController@index']);
+Route::get('report/prov/{id}', ['as' => 'report-prov', 'uses' => 'ReportController@prov']);
+Route::get('report/kab/{id}', ['as' => 'report-kab', 'uses' => 'ReportController@kab']);
+Route::get('report/kec/{id}', ['as' => 'report-kec', 'uses' => 'ReportController@kec']);
+Route::get('report/kel/{id}', ['as' => 'report-kel', 'uses' => 'ReportController@kel']);
 
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
 Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);

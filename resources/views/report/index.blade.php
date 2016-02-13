@@ -21,7 +21,7 @@
 	<table class="table table-bordered" id="users-table">
         <thead>
             <tr>
-                <th>Provinsi</th>
+                <th>{{ $cname }}</th>
 				<th>Jenis Energi</th>
 				<th>Posisi</th>
 				<th>Terpasang</th>
@@ -45,20 +45,19 @@ $(function() {
     $('#users-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('report-ajax') !!}',
+        ajax: '{!! route('report-ajax') !!}{{ $id }}',
         columns: [
-            { data: 'nama_provinsi', name: 'nama_provinsi' },
+            { data: '{{ $fname }}', name: '{{ $fname }}' },
             { data: 'nama_energi', name: 'nama_energi' },
             { data: 'posisi', name: 'posisi' },
             { data: 'terpasang', name: 'terpasang' },
-            { data: 'kwh', name: 'kwh' },
-            { data: 'kwhr', name: 'kwhr' },
-			{"data":'prov',"defaultContent":"<button>View</button>"},
+            { data: 'kwh', name: 'kwh'},
+            { data: 'kwhr', name: 'kwhr'},
+			{ data: '{{ $sname }}', name: '{{ $sname }}',"defaultContent":"<button>View</button>"},
         ],
 		"columnDefs":[
 			{"targets":6, "data":"name", "render": function(data,type,full,meta)
-			 { return '<a href="{!! route('edit-dataebt') !!}?id='+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-edit"></i></a>'+
-			 '<a href="{{ route('destroy-dataebt') }}?id='+data+'" onclick="return confirm(\'Are you sure?\')" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
+			 { return '<a href="{!! route('report') !!}/{{ $sname }}/'+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-eye-open"></i></a>'
 			}},
 	
 		]

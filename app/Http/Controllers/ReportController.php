@@ -28,7 +28,57 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view('report.index');
+        return view('report.index',
+		[
+		'id' => '',
+		'cname' => 'Provinsi',
+		'sname' => 'prov',
+		'fname' => 'nama_provinsi'
+		]);
+    }
+	
+	public function prov($id)
+    {
+        return view('report.index',
+		[
+		'id' => '/prov/'.$id,
+		'cname' => 'Kabupaten',
+		'sname' => 'kab',
+		'fname' => 'nama_kabupaten'
+		]);
+    }
+	
+	public function kab($id)
+    {
+        return view('report.index',
+		[
+		'id' => '/kab/'.$id,
+		'cname' => 'Kecamatan',
+		'sname' => 'kec',
+		'fname' => 'nama_kecamatan'
+		]);
+    }
+	
+	public function kec($id)
+    {
+        return view('report.index',
+		[
+		'id' => '/kec/'.$id,
+		'cname' => 'Kelurahan',
+		'sname' => 'kel',
+		'fname' => 'nama_kelurahan'
+		]);
+    }
+	
+	public function kel($id)
+    {
+        return view('report.index',
+		[
+		'id' => '/kel/'.$id,
+		'cname' => 'Dusun',
+		'sname' => 'kel',
+		'fname' => 'dusun'
+		]);
     }
 
     /**
