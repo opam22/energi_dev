@@ -24,7 +24,10 @@ Route::controller('datatables', 'DatatablesController', [
 
 
 Route::get('dataebt/ajax', [
-		'as' => 'dataebt-ajax', 'uses' => 'DatatablesEbtController@anyData'
+		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@ebtData'
+	]);
+Route::get('report/ajax', [
+		'as' => 'report-ajax', 'uses' => 'DatatablesController@reportData'
 	]);
 	
 Route::get('/', [
@@ -167,6 +170,9 @@ Route::group(['prefix' => 'admin'], function(){
 
 
 });
+
+
+Route::get('report', ['as' => 'report', 'uses' => 'ReportController@index']);
 
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
 Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);
