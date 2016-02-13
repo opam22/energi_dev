@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TransaksiEbt extends Migration
+class Dataebt extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class TransaksiEbt extends Migration
      */
     public function up()
     {
-         Schema::create('dataebt', function(Blueprint $table) {
+        Schema::create('dataebt', function(Blueprint $table) {
                 $table->increments('id_data');
                 $table->integer('prov');
                 $table->integer('kab');
@@ -24,6 +24,8 @@ class TransaksiEbt extends Migration
                 $table->integer('anggaran');
                 $table->integer('terpasang');
                 $table->integer('kwh');
+                $table->integer('kwhr');
+                $table->text('data_keterangan');
                 $table->timestamps();
             });
     }
