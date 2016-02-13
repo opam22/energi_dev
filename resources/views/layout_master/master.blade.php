@@ -235,6 +235,12 @@
 									Master Potensi Daerah
 								</a>
 							</li>
+							<li>
+								<a href="{{ route('master-presentasi') }}">
+									<i class="icon-double-angle-right"></i>
+									Master Presentasi
+								</a>
+							</li>
 						</ul>
 					</li>
 					

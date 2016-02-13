@@ -1,5 +1,5 @@
 <?php
-
+use App\Kabupaten;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -252,3 +252,36 @@ Route::get('master/instansi', ['as' => 'master-instansi', 'uses' => 'MasterInsta
 
 
 Route::get('master/potensi', ['as' => 'master-potensi', 'uses' => 'MasterPotensiController@index']);
+
+
+
+Route::get('master/presentasi', [
+        'as' => 'master-presentasi', 'uses' => 'MasterPresentasiController@index'
+    ]);
+Route::get('master/presentasi/add', [
+        'as' => 'master-presentasi-add', 'uses' => 'MasterPresentasiController@add'
+    ]);
+
+Route::get('master/presentasi/api/kabupaten/{id}', function($id){
+    if(Request::ajax()){
+        //$category_id = Input::get('category_id');
+        $kabupaten = Kabupaten::where('id_provinsi',  $id)->get();
+        return $kabupaten;
+    }
+
+});
+Route::post('master/presentasi/store', [
+        'as' => 'master-presentasi-store', 'uses' => 'MasterPresentasiController@store'
+    ]);
+Route::get('master/presentasi/edit/{id}', [
+        'as' => 'master-presentasi-edit', 'uses' => 'MasterPresentasiController@edit'
+    ]);
+
+Route::post('master/presentasi/update/{id}', [
+        'as' => 'master-presentasi-update', 'uses' => 'MasterPresentasiController@update'
+    ]);
+Route::get('master/presentasi/destroy/{id}', [
+        'as' => 'master-presentasi-destroy', 'uses' => 'MasterPresentasiController@destroy'
+    ]);
+
+ 
