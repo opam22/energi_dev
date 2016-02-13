@@ -66,7 +66,7 @@ $(function() {
 		"columnDefs":[
 			{"targets":10, "data":"name", "render": function(data,type,full,meta)
 			 { return '<a href="{!! route('edit-dataebt') !!}?id='+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-edit"></i></a>'+
-			 '<a href="{{ route('destroy-dataebt') }}?id='+data+'" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
+			 '<a href="{{ route('destroy-dataebt') }}?id='+data+'" onclick="return confirm(\'Are you sure?\')" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
 			}},
 	
 		]

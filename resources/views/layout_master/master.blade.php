@@ -174,6 +174,13 @@
 									Kelola Data EBT
 								</a>
 							</li>
+							
+							<li>
+								<a href="/report">
+									<i class="icon-double-angle-right"></i>
+									Report Data EBT
+								</a>
+							</li>
 						</ul>
 					</li>
 					<li>

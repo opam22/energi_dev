@@ -10,7 +10,7 @@
                             </small>
                         </h1>
     </div><!--/.page-header-->
-    <h1><a href="#" class="btn btn-primary pull-right btn-sm">Add New</a></h1>
+    <h1><a href="{{ route('master-anggaran-add') }}" class="btn btn-primary pull-right btn-sm">Add New</a></h1>
     <div class="table-header">
                                    Jenis-Jenis Anggaran
     </div>
@@ -28,15 +28,12 @@
                     <td>{{ $x }}</td>
                     <td><a href="#">{{ $item->nama_anggaran }}</a></td><td>{{ $item->keterangan }}</td>
                     <td>
-                        <a href="#" class="btn btn-app btn-info btn-mini">
+                        <a href="{{ route('master-anggaran-edit', $item->id_anggaran) }}" class="btn btn-app btn-info btn-mini">
                             <i class="icon-edit"></i>
                         </a> 
-                             {!! Form::button('<i class="icon-trash"></i>', array(
-                                                        'type' => 'submit',
-                                                        'class'=> 'btn btn-app btn-danger btn-mini',
-                                                        'onclick'=>'return confirm("Are you sure?")'
-                                                )); !!}
-                        {!! Form::close() !!}
+                        <a href="{{ route('master-anggaran-destroy', $item->id_anggaran) }}" onclick="return confirm('Are you sure?');" class="btn btn-app btn-danger btn-mini">
+                             <i class="icon-trash"></i>
+                        </a>
                     </td>
                 </tr>
             @endforeach

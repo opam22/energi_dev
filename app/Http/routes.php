@@ -24,7 +24,22 @@ Route::controller('datatables', 'DatatablesController', [
 
 
 Route::get('dataebt/ajax', [
-		'as' => 'dataebt-ajax', 'uses' => 'DatatablesEbtController@anyData'
+		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@ebtData'
+	]);
+Route::get('report/ajax', [
+		'as' => 'report-ajax', 'uses' => 'DatatablesController@reportData'
+	]);
+Route::get('report/ajax/prov/{id}', [
+		'as' => 'report-ajax-prov', 'uses' => 'DatatablesController@reportProvData'
+	]);
+Route::get('report/ajax/kab/{id}', [
+		'as' => 'report-ajax-kab', 'uses' => 'DatatablesController@reportKabData'
+	]);
+Route::get('report/ajax/kec/{id}', [
+		'as' => 'report-ajax-kec', 'uses' => 'DatatablesController@reportKecData'
+	]);
+Route::get('report/ajax/kel/{id}', [
+		'as' => 'report-ajax-kel', 'uses' => 'DatatablesController@reportKelData'
 	]);
 	
 Route::get('/', [
@@ -171,6 +186,13 @@ Route::group(['prefix' => 'admin'], function(){
 
 });
 
+
+Route::get('report', ['as' => 'report', 'uses' => 'ReportController@index']);
+Route::get('report/prov/{id}', ['as' => 'report-prov', 'uses' => 'ReportController@prov']);
+Route::get('report/kab/{id}', ['as' => 'report-kab', 'uses' => 'ReportController@kab']);
+Route::get('report/kec/{id}', ['as' => 'report-kec', 'uses' => 'ReportController@kec']);
+Route::get('report/kel/{id}', ['as' => 'report-kel', 'uses' => 'ReportController@kel']);
+
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
 Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);
 Route::get('dataebt/create', ['as' => 'create-dataebt', 'uses' => 'DataEbtController@create']);
@@ -215,15 +237,18 @@ Route::get('kelurahan/store', ['as' => 'kelurahan-store', 'uses' => 'KelurahanCo
 Route::get('kelurahan/destroy', ['as' => 'kelurahan-destroy', 'uses' => 'KelurahanController@destroy']);
 
 
-Route::get('master/anggaran', [
-            'as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index'
-        ]);
-Route::get('master/energi', [
-            'as' => 'master-energi', 'uses' => 'MasterEnergiController@index'
-        ]);
-Route::get('master/instansi', [
-            'as' => 'master-instansi', 'uses' => 'MasterInstansiController@index'
-        ]);
-Route::get('master/potensi', [
-            'as' => 'master-potensi', 'uses' => 'MasterPotensiController@index'
-        ]);
+Route::get('master/anggaran', ['as' => 'master-anggaran', 'uses' => 'MasterAnggaranController@index']);
+Route::get('master/anggaran/add', ['as' => 'master-anggaran-add', 'uses' => 'MasterAnggaranController@add']);
+Route::get('master/anggaran/destroy/{id_anggaran}', ['as' => 'master-anggaran-destroy', 'uses' => 'MasterAnggaranController@destroy']);
+Route::get('master/anggaran/edit/{id_anggaran}', ['as' => 'master-anggaran-edit', 'uses' => 'MasterAnggaranController@edit']);
+Route::post('master/anggaran/update/{id_anggaran}', ['as' => 'master-anggaran-update', 'uses' => 'MasterAnggaranController@update']);
+Route::post('master/anggaran/store', ['as' => 'master-anggaran-store', 'uses' => 'MasterAnggaranController@store']);
+
+
+Route::get('master/energi', ['as' => 'master-energi', 'uses' => 'MasterEnergiController@index']);
+
+
+Route::get('master/instansi', ['as' => 'master-instansi', 'uses' => 'MasterInstansiController@index']);
+
+
+Route::get('master/potensi', ['as' => 'master-potensi', 'uses' => 'MasterPotensiController@index']);
