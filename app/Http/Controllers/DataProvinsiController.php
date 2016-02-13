@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use Datatables;
 use Yajra\Datatables\Html\Builder;
+use App\Provinsi;
 
 class DataProvinsiController extends Controller
 {
@@ -27,6 +28,13 @@ class DataProvinsiController extends Controller
 
     	return view('admin.data_provinsi.index', compact('provinsi'));
     }
+
+    public function datatables()
+    {
+        return Datatables::of(Provinsi::select('*'))->make(true);
+    }
+
+
 
     public function add()
     {

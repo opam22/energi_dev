@@ -71,6 +71,9 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('data/provinsi', [
             'as' => 'data-provinsi', 'uses' => 'DataProvinsiController@index'
         ]);
+    Route::get('data/provinsi/datatables', [
+            'as' => 'data-provinsi-datatables', 'uses' => 'DataProvinsiController@datatables'
+        ]);
     Route::get('data/provinsi/add', [
     		'as' => 'data-provinsi-add', 'uses' => 'DataProvinsiController@add'
     	]);
