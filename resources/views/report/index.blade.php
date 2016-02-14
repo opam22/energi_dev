@@ -1,12 +1,17 @@
 @extends('layout_master.master')
 
 @section('content')
+
+<div class="page-header position-relative">
+                        <h1>
+                            Data Energi Baru Terbarukan
+                        </h1>
+    </div><!--/.page-header-->
+	<h1><a href="{{ route('create-dataebt') }}" class="btn btn-primary pull-right btn-sm">Tambah Data EBT</a></h1>
+	<div class="table-header">
+                                  Data EBT 
+    </div>
 	
-	<h1>Data EBT</h1>
-
-	<a href="{{ route('create-dataebt') }}" class="btn btn-primary pull-right btn-sm">Tambah Data EBT</a>
-	<br><br>
-
 	@if(Session::has('flash_message'))
 	    
 	    <br><br><br>
@@ -18,7 +23,7 @@
 
 	@endif
 
-	<table class="table table-bordered" id="users-table">
+	<table class="table table-bordered" id="users-table" class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <th>{{ $cname }}</th>
