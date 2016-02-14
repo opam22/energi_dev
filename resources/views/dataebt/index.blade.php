@@ -40,7 +40,6 @@
         </thead>
     </table>
 <!-- jQuery -->
-        <script src="//code.jquery.com/jquery.js"></script>
         <!-- DataTables -->
 		<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
         <!-- Bootstrap JavaScript -->
