@@ -29,7 +29,7 @@ class DataEbtController extends Controller
     public function index()
     {
         return view('dataebt.index', [
-		'anggaran' => DB::table('anggaran')->orderBy('id_anggaran', 'asc')->lists('nama_anggaran','id_anggaran'),
+		'anggarans' => DB::table('anggaran')->orderBy('nama_anggaran', 'asc')->get(),
     	'dataebt' => DB::table('dataebt')
 		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
