@@ -31,7 +31,7 @@
 				<th>Kecamatan</th>
 				<th>Kelurahan</th>
 				<th>Terpasang</th>
-				<th>KWh/Rumah</th>
+				<th>Tahun</th>
 				<th>Jumlah KWh</th>
 				<th>Actions</th>
             </tr>
@@ -52,7 +52,7 @@ $(function() {
             { data: 'nama_kecamatan', name: 'nama_kecamatan' },
             { data: 'nama_kelurahan', name: 'nama_kelurahan' },
             { data: 'terpasang', name: 'terpasang' },
-            { data: 'kwhr', name: 'kwhr' },
+            { data: 'tahun', name: 'tahun' },
             { data: 'kwh', name: 'kwh' },
 			{"data":'id_data',"defaultContent":"<button>View</button>"},
         ],
