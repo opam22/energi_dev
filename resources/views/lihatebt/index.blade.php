@@ -22,9 +22,18 @@
 
 	@endif
 
+				<select name="anggaran" id="anggaran">
+					<option value="">Pilih Anggaran</option>
+					@foreach ($anggarans as $anggaran)
+					<option value="{{ $anggaran->id_anggaran }}">{{ $anggaran->nama_anggaran }}</option>
+					@endforeach
+				<select>
+
+
 	<table class="table table-bordered" id="users-table" class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
+                <th>Anggaran</th>
                 <th>Energi</th>
 				<th>Daerah</th>
 				<th>Kabupaten</th>
@@ -41,11 +50,12 @@
         <!-- App scripts -->
 <script>
 $(function() {
-    $('#users-table').DataTable({
+    var dataebt = $('#users-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{!! route('dataebt-ajax') !!}',
+        ajax: '{!! route('lihatebt-ajax') !!}',
         columns: [
+            { data: 'nama_anggaran', name: 'nama_anggaran' },
             { data: 'nama_energi', name: 'nama_energi' },
             { data: 'nama_provinsi', name: 'nama_provinsi' },
             { data: 'nama_kabupaten', name: 'nama_kabupaten' },
@@ -57,14 +67,17 @@ $(function() {
 			{"data":'id_data',"defaultContent":"<button>View</button>"},
         ],
 		"columnDefs":[
-			{"targets":8, "data":"name", "render": function(data,type,full,meta)
+			{"targets":9, "data":"name", "render": function(data,type,full,meta)
 			 { return '<a href="{!! route('edit-dataebt') !!}?id='+data+'" class="btn btn-app btn-info btn-mini"><i class="icon-edit"></i></a>'+
 			 '<a href="{{ route('destroy-dataebt') }}?id='+data+'" onclick="return confirm(\'Are you sure?\')" class="btn btn-app btn-danger btn-mini"><i class="icon-trash"></i></a>'
 			}},
 	
 		]
     });
-
+	
+	$('#anggaran').on('change', function (e) {
+		if (this.value) dataebt.ajax.url( '/lihatebt/ajax/' + this.value ).load();
+	});
 });
 </script>
 @stop

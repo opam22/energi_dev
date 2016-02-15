@@ -193,7 +193,7 @@
 
 						<ul class="submenu">
 							<li>
-								<a href="#">
+								<a href="/lihatebt">
 									<i class="icon-double-angle-right"></i>
 									Lihat Anggaran EBT
 								</a>

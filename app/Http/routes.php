@@ -23,9 +23,13 @@ Route::controller('datatables', 'DatatablesController', [
 
 
 
-Route::get('dataebt/ajax/{id}', [
+Route::get('dataebt/ajax', [
 		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@ebtData'
 	]);
+Route::get('lihatebt/ajax/{id}', [
+		'as' => 'lihatebt-ajax', 'uses' => 'DatatablesController@lihatebtData'
+	]);
+
 Route::get('report/ajax', [
 		'as' => 'report-ajax', 'uses' => 'DatatablesController@reportData'
 	]);
@@ -192,6 +196,8 @@ Route::get('report/prov/{id}', ['as' => 'report-prov', 'uses' => 'ReportControll
 Route::get('report/kab/{id}', ['as' => 'report-kab', 'uses' => 'ReportController@kab']);
 Route::get('report/kec/{id}', ['as' => 'report-kec', 'uses' => 'ReportController@kec']);
 Route::get('report/kel/{id}', ['as' => 'report-kel', 'uses' => 'ReportController@kel']);
+
+Route::get('lihatebt', ['as' => 'lihatebt', 'uses' => 'LihatEbtController@index']);
 
 Route::get('dataebt', ['as' => 'dataebt', 'uses' => 'DataEbtController@index']);
 Route::get('dataebt/edit', ['as' => 'edit-dataebt', 'uses' => 'DataEbtController@edit']);
