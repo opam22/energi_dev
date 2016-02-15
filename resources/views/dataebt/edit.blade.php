@@ -38,6 +38,13 @@ fieldset {border-radius:4px;}
 				{!! Form::select('anggaran', $anggaran, $dataebt->anggaran, ['class' => 'form-control']) !!}
 			</td>
 		</tr>
+		<tr id='tahun_box'>
+			<td>Tahun</td>
+			<td>:</td>
+			<td>
+				{!! Form::text('tahun', $dataebt->tahun, ['class' => 'form-control']) !!}
+			</td>
+		</tr>
 		<tr id='terpasang_box'>
 			<td>Jumlah Terpasang</td>
 			<td>:</td>

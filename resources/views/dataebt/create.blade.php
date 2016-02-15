@@ -49,6 +49,13 @@ fieldset {border-radius:4px;}
 				<select>
 			</td>
 		</tr>
+		<tr id='tahun_box'>
+			<td>Tahun</td>
+			<td>:</td>
+			<td>
+				<input type="number" name="tahun" id="tahun"/>
+			</td>
+		</tr>
 		<tr id='terpasang_box'>
 			<td>Jumlah Terpasang</td>
 			<td>:</td>

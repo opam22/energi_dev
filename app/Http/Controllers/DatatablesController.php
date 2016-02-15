@@ -75,7 +75,7 @@ class DatatablesController extends Controller
 		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
 		->join('provinsi','dataebt.prov','=','provinsi.id_provinsi')
-		->groupBy('prov')
+		->groupBy('prov','energi')
 		->selectRaw('dataebt.prov, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, provinsi.nama_provinsi');
 		return Datatables::of($devices)
     ->escapeColumns()
@@ -90,7 +90,7 @@ class DatatablesController extends Controller
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
 		->join('kabupaten','dataebt.kab','=','kabupaten.id_kabupaten')
 		->where('dataebt.prov', $id)
-		->groupBy('kab')
+		->groupBy('kab','energi')
 		->selectRaw('dataebt.kab, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kabupaten.nama_kabupaten');
 		return Datatables::of($devices)
     ->escapeColumns()
@@ -105,7 +105,7 @@ class DatatablesController extends Controller
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
 		->join('kecamatan','dataebt.kec','=','kecamatan.id_kecamatan')
 		->where('dataebt.kab', $id)
-		->groupBy('kec')
+		->groupBy('kec','energi')
 		->selectRaw('dataebt.kec, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kecamatan.nama_kecamatan');
 		return Datatables::of($devices)
     ->escapeColumns()
@@ -120,7 +120,7 @@ class DatatablesController extends Controller
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
 		->join('kelurahan','dataebt.kel','=','kelurahan.id_kelurahan')
 		->where('dataebt.kec', $id)
-		->groupBy('kel')
+		->groupBy('kel','energi')
 		->selectRaw('dataebt.kel, dataebt.posisi, sum(dataebt.terpasang) as terpasang, sum(dataebt.kwhr) as kwhr, sum(dataebt.kwh) as kwh, energi.nama_energi, kelurahan.nama_kelurahan');
 		return Datatables::of($devices)
     ->escapeColumns()
