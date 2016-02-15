@@ -23,7 +23,7 @@ Route::controller('datatables', 'DatatablesController', [
 
 
 
-Route::get('dataebt/ajax', [
+Route::get('dataebt/ajax/{id}', [
 		'as' => 'dataebt-ajax', 'uses' => 'DatatablesController@ebtData'
 	]);
 Route::get('report/ajax', [

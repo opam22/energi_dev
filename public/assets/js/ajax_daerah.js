@@ -122,38 +122,3 @@ function clearOverlays() {
   markersArray.length = 0;
 }
 
-function showCoordinate(){
-  var prop = document.getElementById("prop");
-  var kab = document.getElementById("kota");
-  var kec = document.getElementById("kec");
-  var kel = document.getElementById("kel");
-  var s = kel.options[kel.selectedIndex].text
-          +', '
-          +kec.options[kec.selectedIndex].text;
-      s2= s
-          +', '
-          +kab.options[kab.selectedIndex].text
-          +', '
-          +prop.options[prop.selectedIndex].text;   
-  geocoder.geocode( { 'address': s}, function(results, status) {
-  document.getElementById("lat_box").style.display='table-row';
-  document.getElementById("lng_box").style.display='table-row';
-    if (status == google.maps.GeocoderStatus.OK) {
-      clearOverlays();
-      var position=results[0].geometry.location;
-      document.getElementById("lat").value=position.lat();
-      document.getElementById("lng").value=position.lng();
-      map.setCenter(results[0].geometry.location);
-      marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location,
-          title:s2
-      });
-      markersArray.push(marker);
-      google.maps.event.addListener(marker,"click",function(){});
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
-google.maps.event.addDomListener(window, 'load', initialize);

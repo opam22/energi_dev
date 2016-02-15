@@ -36,14 +36,8 @@
             </tr>
         </thead>
     </table>
-<!-- jQuery -->
-        <!-- DataTables -->
-		<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
-        <!-- Bootstrap JavaScript -->
-		<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <!-- App scripts -->
 
-	
+        <!-- App scripts -->
 <script>
 $(function() {
     $('#users-table').DataTable({

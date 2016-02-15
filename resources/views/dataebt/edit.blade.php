@@ -9,7 +9,8 @@ fieldset {border-radius:4px;}
 </style>
 
 	<script type="text/javascript" src="{{ asset('/assets/js/ajax_daerah.js') }}"></script>
-	{!! Form::open(['route' => 'store-dataebt']) !!}
+	{!! Form::open(['route' => 'update-dataebt']) !!}
+	{!! Form::hidden('id', $dataebt->id_data, ['class' => 'form-control']) !!}
 	<fieldset>
 	    <legend>Data Daerah</legend>
 		<table style='width:410px;float:left'>
@@ -71,57 +72,36 @@ fieldset {border-radius:4px;}
 			<td>Provinsi</td>
 			<td>:</td>
 			<td>
-				<select name="prov" id="prov" onchange="ajaxkota(this.value)">
-					<option value="">Pilih Provinsi</option>
-					@foreach ($tasks as $task)
-					<option value="{{ $task->id_provinsi }}">{{ $task->nama_provinsi }}</option>
-					@endforeach
-				<select>
+				{{ $dataebt->nama_provinsi }}
 			</td>
 		</tr>
 		<tr id='kab_box'>
 			<td>Kota/Kabubaten</td>
 			<td>:</td>
 			<td>
-				<select name="kab" id="kab" onchange="ajaxkec(this.value)">
-					<option value="">Pilih Kota</option>
-				</select>
+				{{ $dataebt->nama_kabupaten }}
 			</td>
 		</tr>
 		<tr id='kec_box'>
 			<td>Kecamatan</td>
 			<td>:</td>
 			<td>
-				<select name="kec" id="kec" onchange="ajaxkel(this.value)">
-					<option value="">Pilih Kecamatan</option>
-				</select>
+				{{ $dataebt->nama_kecamatan }}
 			</td>
 		</tr>
 		<tr id='kel_box'>
 			<td>Kelurahan/Desa</td>
 			<td>:</td>
 			<td>
-				<select name="kel" id="kel" onchange="ajaxdusun(this.value);">
-					<option value="">Pilih Kelurahan/Desa</option>
-				</select>
+				{{ $dataebt->nama_kelurahan }}
 			</td>
 		</tr>
 		<tr id='dusun_box'>
 			<td>Dusun</td>
 			<td>:</td>
 			<td>
-				<input type="text" name="dusun" id="dusun"/>
+				{{ $dataebt->dusun }}
 			</td>
-		</tr>
-		<tr id='lat_box'>
-		  <td>Latitude</td>
-		  <td>:</td>
-		  <td><input type='text' id='lat' readonly></td>
-		</tr>
-		<tr id='lng_box'>
-		  <td>Longitude</td>
-		  <td>:</td>
-		  <td><input type='text' id='lng' readonly></td>
 		</tr>
 		</table>
 		<div id="table" style='width:200px;margin-left:80px;'>

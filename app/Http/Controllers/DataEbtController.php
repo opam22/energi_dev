@@ -29,6 +29,7 @@ class DataEbtController extends Controller
     public function index()
     {
         return view('dataebt.index', [
+		'anggaran' => DB::table('anggaran')->orderBy('id_anggaran', 'asc')->lists('nama_anggaran','id_anggaran'),
     	'dataebt' => DB::table('dataebt')
 		->leftjoin('energi','dataebt.energi','=','energi.id_energi')
 		->leftjoin('anggaran','dataebt.anggaran','=','anggaran.id_anggaran')
@@ -61,8 +62,10 @@ class DataEbtController extends Controller
     	'tasks' => DB::table('provinsi')->orderBy('nama_provinsi', 'asc')->get(),
     	'anggaran' => DB::table('anggaran')->orderBy('nama_anggaran', 'asc')->lists('nama_anggaran','id_anggaran'),
     	'energi' => DB::table('energi')->orderBy('nama_energi', 'asc')->lists('nama_energi','id_energi'),
-    	'energi' => DB::table('energi')->orderBy('nama_energi', 'asc')->lists('nama_energi','id_energi'),
-    	'dataebt' => DB::table('dataebt')->where('id_data', $request->input('id'))->first(),
+    	'dataebt' => DB::table('dataebt')->join('provinsi','dataebt.prov','=','provinsi.id_provinsi')
+		->join('kabupaten','dataebt.kab','=','kabupaten.id_kabupaten')
+		->join('kecamatan','dataebt.kec','=','kecamatan.id_kecamatan')
+		->join('kelurahan','dataebt.kel','=','kelurahan.id_kelurahan')->where('id_data', $request->input('id'))->first(),
     ]);
     }
 
@@ -82,7 +85,10 @@ class DataEbtController extends Controller
 	public function update(Request $request)
     {
 		// $input = $request->all();
-        DB::table('dataebt')->insert($request->except(['_token']));
+
+		DB::table('dataebt')
+                        ->where('id_data', $request->input('id'))
+                        ->update($request->except('_token','id'));
 		return redirect()->route('dataebt');
 
     }

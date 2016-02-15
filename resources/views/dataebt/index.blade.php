@@ -21,6 +21,8 @@
 	    </div>
 
 	@endif
+{!! Form::select('anggaran', $anggaran, ['class' => 'ffffff-control','id'=> 'anggaran']) !!}
+
 
 	<table class="table table-bordered" id="users-table" class="table table-striped table-bordered table-hover">
         <thead>
@@ -39,14 +41,8 @@
             </tr>
         </thead>
     </table>
-<!-- jQuery -->
-        <!-- DataTables -->
-		<script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
-        <!-- Bootstrap JavaScript -->
-		<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <!-- App scripts -->
 
-	
+        <!-- App scripts -->
 <script>
 $(function() {
     $('#users-table').DataTable({
@@ -74,6 +70,12 @@ $(function() {
 	
 		]
     });
+});
+
+$(function() {
+    $('#anggaran').on('change', function (e) {
+	alert(this.value);
+	});
 });
 </script>
 @stop
