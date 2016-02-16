@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Presentase;
 use App\Provinsi;
+use App\Kabupaten;
 
 class MasterPresentasiController extends Controller
 {
@@ -53,7 +54,9 @@ class MasterPresentasiController extends Controller
 
     	$provinsies = Provinsi::lists('nama_provinsi', 'id_provinsi');
 
-    	return view('admin.master_presentasi.edit', compact('presentase', 'provinsies'));
+        $kabupatens = Kabupaten::where('id_provinsi', $presentase->id_provinsi)->get();
+
+    	return view('admin.master_presentasi.edit', compact('presentase', 'provinsies', 'kabupatens'));
     }
 
     public function update(Request $request, $id)

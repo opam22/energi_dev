@@ -16,7 +16,9 @@
           {!! Form::label('id_kabupaten', 'Kabupaten') !!}
 
           <select id="id_kabupaten" name="id_kabupaten" class="form-control">
-                <option>-- Kabupaten / Kota --</option>
+            @foreach($kabupatens as $x)
+                <option value="{{ $x->id_kabupaten }}" <?php if($x->id_kabupaten == $presentase->id_kabupaten) { ?> selected <?php }  ?>>{{ $x->nama_kabupaten }}</option>
+            @endforeach
           </select> 
 
         </div>
